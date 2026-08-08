@@ -1,0 +1,64 @@
+{
+  "day": 12,
+  "title": "Build a mini portfolio dashboard",
+  "difficulty": "Intermediate",
+  "estimatedDuration": "45 min",
+  "progress": 70,
+  "description": "Create a polished, mobile-first portfolio dashboard that showcases your daily challenge progress, achievements, and momentum.",
+  "objectives": [
+    "Design a clear daily overview",
+    "Show progress visually",
+    "Keep the experience motivating"
+  ],
+  "skills": ["React", "UI polish", "State management", "Accessibility"],
+  "checklist": [
+    { "label": "Complete project", "done": true },
+    { "label": "Push GitHub commit", "done": true },
+    { "label": "Write LinkedIn post", "done": false },
+    { "label": "Test application", "done": true },
+    { "label": "Submit links", "done": false }
+  ],
+  "resources": [
+    {
+      "title": "Documentation",
+      "url": "https://react.dev/learn",
+      "type": "Docs"
+    },
+    {
+      "title": "Tutorial",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "type": "Video"
+    },
+    {
+      "title": "Reference Article",
+      "url": "https://tailwindcss.com/docs",
+      "type": "Guide"
+    },
+    {
+      "title": "Sample UI Inspiration",
+      "url": "https://dribbble.com",
+      "type": "Inspiration"
+    }
+  ],
+  "submission": {
+    "github": {
+      "value": "https://github.com/deepak/abtalks-dashboard",
+      "valid": true,
+      "message": "GitHub repository looks ready."
+    },
+    "linkedin": {
+      "value": "",
+      "valid": false,
+      "message": "Please add a LinkedIn post URL."
+    },
+    "completed": false,
+    "overall": 60,
+    "mentorMessage": "Your GitHub repository looks ready. Don't forget your LinkedIn post."
+  },
+  "success": {
+    "visible": false,
+    "xp": 150,
+    "streakPreview": 8,
+    "message": "Congratulations! Your proof is submitted."
+  }
+}
