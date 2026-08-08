@@ -723,15 +723,6 @@ Review all major UI elements, including:
 
 Use appropriate Tailwind `dark:` classes.
 
-For example:
-
-```text
-text-slate-900 dark:text-white
-text-slate-600 dark:text-slate-300
-bg-white dark:bg-slate-950
-bg-slate-50 dark:bg-slate-900
-border-slate-200 dark:border-white/10
-
 
 
 # Prompt 14 – Premium Card Hover Effect
