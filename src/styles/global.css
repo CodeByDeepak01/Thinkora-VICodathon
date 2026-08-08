@@ -1,0 +1,383 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================= */
+/* ROOT */
+/* ========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light;
+}
+
+/* ========================================================= */
+/* BOX SIZING */
+/* ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ========================================================= */
+/* HTML */
+/* ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================================= */
+/* BODY */
+/* ========================================================= */
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.08),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(45, 212, 191, 0.06),
+      transparent 26%
+    ),
+    #f8fafc;
+
+  color: #0f172a;
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+/* ========================================================= */
+/* DARK BODY */
+/* ========================================================= */
+
+.dark body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(45, 212, 191, 0.16),
+      transparent 26%
+    ),
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #0f172a 45%,
+      #111827 100%
+    );
+
+  color: #e2e8f0;
+
+  color-scheme: dark;
+}
+
+/* ========================================================= */
+/* ROOT */
+/* ========================================================= */
+
+#root {
+  position: relative;
+
+  z-index: 1;
+
+  min-height: 100vh;
+
+  isolation: isolate;
+}
+
+/* ========================================================= */
+/* BACKGROUND EFFECTS */
+/* ========================================================= */
+
+body::before,
+body::after {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+body::before {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(96, 165, 250, 0.06),
+      transparent 24%
+    );
+
+  opacity: 0;
+
+  transition: opacity 300ms ease;
+}
+
+.dark body::before {
+  opacity: 1;
+}
+
+body::after {
+  background:
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(16, 185, 129, 0.06),
+      transparent 28%
+    );
+
+  opacity: 0;
+
+  transition: opacity 300ms ease;
+}
+
+.dark body::after {
+  opacity: 1;
+}
+
+/* ========================================================= */
+/* ANIMATED BACKGROUND */
+/* ========================================================= */
+
+.animated-background {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+.dark .animated-background {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(2, 6, 23, 0.95),
+      rgba(15, 23, 42, 0.96)
+    );
+}
+
+.animated-background::before,
+.animated-background::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -20%;
+
+  border-radius: 9999px;
+
+  filter: blur(60px);
+
+  opacity: 0;
+
+  animation: drift 18s ease-in-out infinite;
+}
+
+.dark .animated-background::before,
+.dark .animated-background::after {
+  opacity: 0.45;
+}
+
+.animated-background::before {
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.2),
+      transparent 55%
+    );
+
+  left: -10%;
+
+  top: -8%;
+}
+
+.animated-background::after {
+  background:
+    radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.18),
+      transparent 58%
+    );
+
+  right: -8%;
+
+  bottom: -10%;
+
+  animation-delay: -6s;
+}
+
+/* ========================================================= */
+/* GRID */
+/* ========================================================= */
+
+.animated-grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+
+  background-size: 64px 64px;
+
+  mask-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8),
+      transparent 85%
+    );
+
+  opacity: 0;
+
+  animation: gridShift 24s linear infinite;
+
+  pointer-events: none;
+}
+
+.dark .animated-grid {
+  opacity: 0.22;
+}
+
+/* ========================================================= */
+/* FLOATING ORB */
+/* ========================================================= */
+
+.floating-orb {
+  position: absolute;
+
+  width: clamp(8rem, 19vw, 14rem);
+
+  aspect-ratio: 1;
+
+  border-radius: 9999px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.15),
+      rgba(15, 23, 42, 0)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  opacity: 0;
+
+  animation: pulseGlow 8s ease-in-out infinite;
+
+  backdrop-filter: blur(12px);
+
+  pointer-events: none;
+}
+
+.dark .floating-orb {
+  opacity: 1;
+}
+
+/* ========================================================= */
+/* ANIMATIONS */
+/* ========================================================= */
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(18px, -18px, 0) scale(1.04);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gridShift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(30px, 30px, 0);
+  }
+}
+
+/* ========================================================= */
+/* REDUCED MOTION */
+/* ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
