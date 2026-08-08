@@ -93,59 +93,61 @@ function Layout({ children }) {
           "
         >
           {/* ================================================= */}
-          {/* LOGO */}
-          {/* ================================================= */}
+{/* LOGO */}
+{/* ================================================= */}
 
-          <NavLink
-            to="/"
-            onClick={closeMobileMenu}
-            className="flex shrink-0 items-center gap-3"
-          >
-            <div
-              className="
-                flex
-                h-10
-                w-10
-                items-center
-                justify-center
-                rounded-full
-                bg-primary-600
-                text-white
-                shadow-md
-                shadow-primary-600/20
-                transition-transform
-                duration-200
-                hover:scale-105
-              "
-            >
-              <Code2 className="h-5 w-5" />
-            </div>
+<NavLink
+  to="/"
+  onClick={closeMobileMenu}
+  className="flex shrink-0 items-center gap-3"
+>
+  <div
+    className="
+      flex
+      h-10
+      w-10
+      items-center
+      justify-center
+      rounded-full
+      bg-primary-600
+      text-white
+      shadow-md
+      shadow-primary-600/20
+      transition-transform
+      duration-200
+      hover:scale-105
+    "
+  >
+    <Code2 className="h-5 w-5" />
+  </div>
 
-            <div className="hidden leading-tight sm:block">
-              <h1 className="text-xl font-black tracking-tight">
-                <span className="text-slate-900 dark:text-white">
-                  AB
-                </span>
+  <div className="leading-tight">
+    <h1 className="text-xl font-black tracking-tight">
+      <span className="text-slate-900 dark:text-white">
+        AB
+      </span>
 
-                <span className="text-primary-600">
-                  Talks
-                </span>
-              </h1>
+      <span className="text-primary-600">
+        Talks
+      </span>
+    </h1>
 
-              <p
-                className="
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.25em]
-                  text-slate-500
-                  dark:text-slate-400
-                "
-              >
-                Build • Ship • Grow
-              </p>
-            </div>
-          </NavLink>
+    <p
+      className="
+        hidden
+        text-[9px]
+        font-semibold
+        uppercase
+        tracking-[0.25em]
+        text-slate-500
+        dark:text-slate-400
+        sm:block
+      "
+    >
+      Build • Ship • Grow
+    </p>
+  </div>
+</NavLink>
 
           {/* ================================================= */}
           {/* DESKTOP NAVIGATION */}
