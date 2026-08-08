@@ -1,5 +1,4 @@
-import { useState } from "react";
-import {
+import { useEffect, useRef, useState } from "react";import {
   Code2,
   Menu,
   Moon,
@@ -13,6 +12,8 @@ function Layout({ children }) {
   const { darkMode, toggleTheme } = useTheme();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const mobileMenuRef = useRef(null);
 
   const navLinkClass = ({ isActive }) => `
     flex
@@ -45,6 +46,25 @@ function Layout({ children }) {
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      mobileMenuRef.current &&
+      !mobileMenuRef.current.contains(event.target)
+    ) {
+      closeMobileMenu();
+    }
+  };
+
+  if (mobileMenuOpen) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [mobileMenuOpen]);
 
   return (
     <div
@@ -365,92 +385,93 @@ function Layout({ children }) {
         </div>
 
         {/* ================================================= */}
-        {/* MOBILE MENU */}
-        {/* ================================================= */}
+{/* MOBILE MENU */}
+{/* ================================================= */}
 
-        {mobileMenuOpen && (
-          <div
-            className="
-              border-t
-              border-slate-200
-              bg-white
-              px-3
-              pb-4
-              pt-3
-              shadow-lg
-              dark:border-white/10
-              dark:bg-[#020617]
-            "
-          >
-            <nav className="mx-auto max-w-6xl space-y-1">
-              <NavLink
-                to="/"
-                onClick={closeMobileMenu}
-                className={navLinkClass}
-              >
-                Home
-              </NavLink>
+{mobileMenuOpen && (
+  <div
+    ref={mobileMenuRef}
+    className="
+      border-t
+      border-slate-200
+      bg-white
+      px-3
+      pb-4
+      pt-3
+      shadow-lg
+      dark:border-white/10
+      dark:bg-[#020617]
+    "
+  >
+    <nav className="mx-auto max-w-6xl space-y-1">
+      <NavLink
+        to="/"
+        onClick={closeMobileMenu}
+        className={navLinkClass}
+      >
+        Home
+      </NavLink>
 
-              <NavLink
-                to="/dashboard"
-                onClick={closeMobileMenu}
-                className={navLinkClass}
-              >
-                Dashboard
-              </NavLink>
+      <NavLink
+        to="/dashboard"
+        onClick={closeMobileMenu}
+        className={navLinkClass}
+      >
+        Dashboard
+      </NavLink>
 
-              <NavLink
-                to="/day/12"
-                onClick={closeMobileMenu}
-                className={navLinkClass}
-              >
-                Challenge
-              </NavLink>
+      <NavLink
+        to="/day/12"
+        onClick={closeMobileMenu}
+        className={navLinkClass}
+      >
+        Challenge
+      </NavLink>
 
-              <NavLink
-                to="/leaderboard"
-                onClick={closeMobileMenu}
-                className={navLinkClass}
-              >
-                Leaderboard
-              </NavLink>
+      <NavLink
+        to="/leaderboard"
+        onClick={closeMobileMenu}
+        className={navLinkClass}
+      >
+        Leaderboard
+      </NavLink>
 
-              <NavLink
-                to="/profile"
-                onClick={closeMobileMenu}
-                className={navLinkClass}
-              >
-                Profile
-              </NavLink>
+      <NavLink
+        to="/profile"
+        onClick={closeMobileMenu}
+        className={navLinkClass}
+      >
+        Profile
+      </NavLink>
 
-              {/* Login */}
-              <NavLink
-                to="/login"
-                onClick={closeMobileMenu}
-                className="
-                  mt-2
-                  flex
-                  min-h-[44px]
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-primary-600
-                  px-4
-                  py-2
-                  text-sm
-                  font-semibold
-                  text-white
-                  shadow-md
-                  transition-all
-                  duration-200
-                  hover:bg-primary-700
-                "
-              >
-                Login
-              </NavLink>
-            </nav>
-          </div>
-        )}
+      {/* Login */}
+      <NavLink
+        to="/login"
+        onClick={closeMobileMenu}
+        className="
+          mt-2
+          flex
+          min-h-[44px]
+          items-center
+          justify-center
+          rounded-full
+          bg-primary-600
+          px-4
+          py-2
+          text-sm
+          font-semibold
+          text-white
+          shadow-md
+          transition-all
+          duration-200
+          hover:bg-primary-700
+        "
+      >
+        Login
+      </NavLink>
+    </nav>
+  </div>
+)}
       </header>
 
       {/* ================================================= */}
@@ -479,5 +500,6 @@ function Layout({ children }) {
     </div>
   );
 }
+
 
 export default Layout;

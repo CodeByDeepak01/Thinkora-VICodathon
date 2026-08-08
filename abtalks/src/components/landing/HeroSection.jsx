@@ -308,30 +308,28 @@ function HeroSection({ visitorState = "first-time" }) {
             </Button>
 
             <Button
-  variant="heroSecondary"
-  size="lg"
-  className="
-    group
-    w-full
-    justify-center
-    sm:w-auto
-    text-slate-700
-    dark:text-white
-  "
->
-  <PlayCircle
-    className="
-      mr-2
-      h-4
-      w-4
-      transition-transform
-      duration-200
-      group-hover:scale-110
-    "
-  />
+              variant="heroSecondary"
+              size="lg"
+              className="
+                group
+                w-full
+                justify-center
+                sm:w-auto
+              "
+            >
+              <PlayCircle
+                className="
+                  mr-2
+                  h-4
+                  w-4
+                  transition-transform
+                  duration-200
+                  group-hover:scale-110
+                "
+              />
 
-  See How It Works
-</Button>
+              See How It Works
+            </Button>
           </div>
 
           {/* STATS */}
