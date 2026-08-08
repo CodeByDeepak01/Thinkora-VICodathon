@@ -7,7 +7,7 @@ const buttonVariants = {
   secondary: "bg-surface-200 text-slate-800 hover:bg-surface-300",
 
   heroSecondary:
-    "bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm",
+  "bg-white/10 border border-white/20 text-slate-700 hover:bg-white/20 backdrop-blur-sm dark:text-white",
 
   ghost: "bg-transparent text-slate-700 hover:bg-surface-200",
 };
